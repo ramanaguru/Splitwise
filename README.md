@@ -28,9 +28,9 @@ Note: All tests will be performed in one go. The application doesn't need to per
 ## Input Format
 
 
-Register vinsmokesanji 003 namisswwaann
+Register Ramana 003  Guru
 
-> u1 is registering with the username "vinsmokesanji", phone "003" and password as "namisswwaann"
+> u1 is registering with the username "Ramana", phone "003" and password as "Romi"
 -- --
 u1 UpdateProfile robinchwan
 
@@ -124,7 +124,7 @@ Assume that the members in the group are organised by their userids in ascending
 
 
 Main
--> COmmand Executor
+-> Command Executor
 ->
 
 
