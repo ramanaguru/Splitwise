@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Create an Expense Sharing Application
 
 ## Requirements
@@ -151,3 +152,6 @@ strategies
 
 
 [Multiple Clients] -> Controller
+=======
+
+>>>>>>> origin/main
