@@ -2,6 +2,7 @@ package com.example.Splitwise.Services;
 
 import com.example.Splitwise.exceptions.UserAlreadyExistsException;
 import com.example.Splitwise.Repository.UserRepository;
+import com.example.Splitwise.exceptions.UserIdInvalidException;
 import com.example.Splitwise.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,18 @@ public class UserService {
         user.setEmail(email);
 
         return userRepository.save(user); // save the user
+
+    }
+
+    public void updateProfile(long Id ,String name, String password, String email) throws UserIdInvalidException {
+        Optional<User> userOptional = userRepository.findById(Id); // check if the user exists
+
+        if(userOptional.isPresent()) throw new UserIdInvalidException(); // throw exception if user does not exist
+
+        User user = userOptional.get(); // get the user
+        user.setName(name);             // set the name
+        user.setPassword(password);     // set the password
+        user.setEmail(email);           // set the email
 
     }
 }
