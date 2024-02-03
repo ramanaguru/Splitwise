@@ -1,10 +1,9 @@
 package com.example.Splitwise.controllers;
 
-import com.example.Splitwise.DTOs.RegisterRequestDTO;
-import com.example.Splitwise.DTOs.RegisterResponseDTO;
-import com.example.Splitwise.DTOs.ResponseStatus;
+import com.example.Splitwise.DTOs.*;
 import com.example.Splitwise.exceptions.UserAlreadyExistsException;
 import com.example.Splitwise.Services.UserService;
+import com.example.Splitwise.exceptions.UserIdInvalidException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import com.example.Splitwise.models.User;
@@ -39,5 +38,23 @@ public class UserController {
         registerResponseDTO.setMessage("User registered successfully with Id : " + user.getId() );
 
         return registerResponseDTO;
+    }
+
+    public UpdateProfileResponseDTO updateprofile(UpdateProfileRequestDTO request){
+        UpdateProfileResponseDTO response = new UpdateProfileResponseDTO();
+
+        try{
+            userService.updateProfile(request.getId(), request.getName(), request.getPassword(), request.getEmail()); // call the updateProfile method of the userService
+
+        } catch(UserIdInvalidException e){
+            response.setMessage("User does not exist with id");
+            response.setStatus(ResponseStatus.FAILURE);
+            return response;
+        }
+
+        response.setStatus(ResponseStatus.SUCCESS);
+        response.setMessage("UserProfile  updated successfully." );
+
+        return response; // return the response
     }
 }
