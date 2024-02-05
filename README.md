@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Create an Expense Sharing Application
 
 ## Requirements
@@ -106,7 +106,7 @@ u1 can add an expense what other users?
 - specific people - u2 u3 u4
 
 who paid
-- iPaid amount
+- iPay amount
 - Multipay a1 a2 a3 ...
 
 who owes what
@@ -125,33 +125,21 @@ Assume that the members in the group are organised by their userids in ascending
 
 Main
 -> Command Executor
-->
 
 
-Multiple Clients
-// MVC
-// Model View COntroller
+// MVC ==>  Model View Controller
 
 ///
+
 src
 controllers
 models
 services
 repositories
-common
+commands
 strategies
 
 ///
 
-- User
-- Expense
-- Group
-- Transaction
 
 
-
-
-[Multiple Clients] -> Controller
-=======
-
->>>>>>> origin/main
