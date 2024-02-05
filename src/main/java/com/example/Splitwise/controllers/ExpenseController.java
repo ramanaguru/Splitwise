@@ -1,8 +1,6 @@
 package com.example.Splitwise.controllers;
 
-import com.example.Splitwise.DTOs.AddExpenseRequestDTO;
-import com.example.Splitwise.DTOs.AddExpenseResponseDTO;
-import com.example.Splitwise.DTOs.ResponseStatus;
+import com.example.Splitwise.DTOs.*;
 import com.example.Splitwise.Services.ExpenseService;
 import com.example.Splitwise.exceptions.GroupIdInvalidException;
 import com.example.Splitwise.exceptions.MemeberIdInvalidException;
@@ -52,6 +50,35 @@ public class ExpenseController {
             response.setStatus(ResponseStatus.SUCCESS);
             return response;
 
+        }
+
+        public MyTotalResponseDTO myTotal(MyTotalRequestDTO request){
+            MyTotalResponseDTO response = new MyTotalResponseDTO();
+            Long myTotal;
+
+            try{
+                myTotal = expenseService.myTotal(request.getUserId());
+            }
+            catch(UserIdInvalidException e){
+                response.setMessage(e.getMessage());
+                response.setStatus(ResponseStatus.FAILURE);
+                return response;
+            }
+
+            if (myTotal > 0){
+                response.setMessage("Reminder -> Your Total Amount yet to receive  " + myTotal);
+            }
+            else if(myTotal < 0){
+                response.setMessage("Reminder -> Your Total Amount yet to pay " + myTotal);
+            }
+            else{
+                response.setMessage("You are settled up with everyone");
+            }
+
+            response.setStatus(ResponseStatus.SUCCESS);
+            response.setMyTotal(myTotal);
+
+            return response;
         }
 
 
