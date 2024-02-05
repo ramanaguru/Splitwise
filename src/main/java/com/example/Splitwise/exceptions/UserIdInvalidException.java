@@ -1,4 +1,4 @@
-package com.example.Splitwise.exceptions;
+ package com.example.Splitwise.exceptions;
 
 public class UserIdInvalidException extends Exception{
     public UserIdInvalidException(){
