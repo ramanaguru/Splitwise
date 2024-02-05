@@ -7,8 +7,9 @@ import lombok.Setter;
 @Setter
 public class MyTotalResponseDTO {
 
-    private Long UserId;
+
     private String message;
     private ResponseStatus status;
+    private Long MyTotal;
 
 }
