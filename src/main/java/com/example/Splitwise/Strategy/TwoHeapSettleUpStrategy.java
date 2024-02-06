@@ -14,8 +14,13 @@ import java.util.*;
 @Component
 public class TwoHeapSettleUpStrategy implements SettleUpStrategy{
 
-    @Autowired
+
     UserRepository userRepository;
+    @Autowired
+    public TwoHeapSettleUpStrategy(UserRepository userRepository){
+        this.userRepository = userRepository;
+    }
+
     @Override
     public List<Transaction>settleUp(List<ExpenseUser> expenseUsers){
         HashMap<Long, Long> map = new HashMap<>();
