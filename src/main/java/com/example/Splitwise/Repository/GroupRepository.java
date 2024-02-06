@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface GroupRepository extends JpaRepository<Group, Long> {
     List<Group>findAllByAdmin(User user);
+    List<Group>findAll();
 }
