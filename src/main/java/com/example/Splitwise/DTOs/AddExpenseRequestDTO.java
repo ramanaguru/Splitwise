@@ -14,6 +14,7 @@ public class AddExpenseRequestDTO {
     private Long createdByUserId;
 
     private List<Long> users;
+    
 
     private List<Long>PaidAmounts;
 
